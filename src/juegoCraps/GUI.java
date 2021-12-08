@@ -56,7 +56,6 @@ public class GUI extends JFrame {
         modelCraps = new ModelCraps();
         //Set up JComponents
         headerProject = new Header("Mesa Juego Craps", Color.BLACK);
-
         this.add(headerProject,BorderLayout.NORTH);
 
         imageDado = new ImageIcon(getClass().getResource("/resources/dado.png"));

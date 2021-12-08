@@ -36,6 +36,10 @@ public class GUIGridBagLayout extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
+    /**
+     * This method is used to set up the default JComponent Configuration,
+     * create Listener and control Objects used for the GUI class
+     */
     private void initGUI() {
         //Set up JFrame Container's Layout
         this.getContentPane().setLayout(new GridBagLayout());
@@ -92,6 +96,7 @@ public class GUIGridBagLayout extends JFrame {
         resultadosDados = new JTextArea(4,31);
         resultadosDados.setBorder(BorderFactory.createTitledBorder("Resultados"));
         resultadosDados.setText("Debes lanzar los dados");
+        resultadosDados.setEditable(false);
         constraints.gridx = 1;
         constraints.gridy = 2;
         constraints.gridwidth = 1;
@@ -111,6 +116,7 @@ public class GUIGridBagLayout extends JFrame {
         mensajesSalida = new JTextArea(4,31);
         mensajesSalida.setText("Usa el boton (?) para ver las reglas del juego");
         mensajesSalida.setBorder(BorderFactory.createTitledBorder("Mensajes "));
+        mensajesSalida.setEditable(false);
         constraints.gridx = 0;
         constraints.gridy = 4;
         constraints.gridwidth = 2;

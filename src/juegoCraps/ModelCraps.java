@@ -31,10 +31,10 @@ public class ModelCraps {
      * Establish the tiro value according to each dice
      */
     public void calcularTiro() {
+
         caras[0] = dado1.getCara();
         caras[1] = dado2.getCara();
         tiro = caras[0] + caras[1];
-        flag = 0;
     }
 
     /**
@@ -57,11 +57,9 @@ public class ModelCraps {
                     estado = 3;
                     punto = tiro;
                     flag = 1;
-
                 }
             }
-        } else {
-            //ronda punto
+        }else{
             rondaPunto();
         }
     }
@@ -74,12 +72,12 @@ public class ModelCraps {
     private void rondaPunto() {
         if (tiro == punto) {
             //point win
-            estado = 4;
+            estado=4;
             flag = 0;
         }
         if (tiro == 7) {
             //point lose
-            estado = 5;
+            estado=5;
             flag = 0;
         }
     }
@@ -94,28 +92,22 @@ public class ModelCraps {
 
     /**
      * Establish message game state according to estado attribute value
-     *
      * @return Message for the view class
      */
     public String getEstadoToString() {
         switch (estado) {
-            case 1:
-                estadoToString = "Sacaste Natural, ¡has ganado!";
-                break;
-            case 2:
-                estadoToString = "Sacaste Craps, ¡has perdido!";
-                break;
-            case 3:
-                estadoToString = "Estableciste punto en " + punto +
-                        " ¡Debes seguir lanzando!" +
-                        "\n pero si sacas 7 antes que " + punto + ", perderas";
-                break;
-            case 4:
-                estadoToString = "Volviste a sacar " + punto + ", ¡has ganado!";
-                break;
-            case 5:
-                estadoToString = "Sacaste 7 antes que " + punto + ", ¡has perdido!";
-                break;
+            case 1: estadoToString = "Sacaste Natural, ¡has ganado!";
+                    break;
+            case 2: estadoToString = "Sacaste Craps, ¡has perdido!";
+                    break;
+            case 3: estadoToString = "Estableciste punto en " + punto +
+                                    ", ¡debes seguir lanzando!" +
+                                    "\nPero si sacas 7 antes que " + punto + ", perderas.";
+                    break;
+            case 4: estadoToString = "Volviste a sacar " + punto + ", ¡has ganado!";
+                    break;
+            case 5: estadoToString = "Volviste a sacar 7, ¡has perdido!";
+                    break;
         }
         return estadoToString;
     }
